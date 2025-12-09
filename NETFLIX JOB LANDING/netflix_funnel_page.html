@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Job Opportunity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px 20px 120px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .logo h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: #e50914;
+            letter-spacing: 3px;
+        }
+
+        .urgency-banner {
+            background: linear-gradient(135deg, #e50914 0%, #ff1a1a 100%);
+            border-radius: 16px;
+            padding: 18px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.4);
+            animation: pulse 2s infinite, fadeInDown 1s ease;
+        }
+
+        .urgency-banner h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .urgency-banner p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d0a0a 100%);
+            border-radius: 24px;
+            padding: 50px 30px;
+            box-shadow: 0 20px 60px rgba(229, 9, 20, 0.3);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #e50914, #ff0a16, #e50914, #ff0a16);
+            background-size: 400% 400%;
+            border-radius: 24px;
+            z-index: -1;
+            animation: gradientMove 3s ease infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #cccccc;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .timer-stats {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgba(229, 9, 20, 0.3);
+            animation: fadeInUp 1.1s ease;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #e50914;
+        }
+
+        .stat-value.timer {
+            font-family: 'Inter', monospace;
+            font-weight: 700;
+        }
+
+        .stat-value.online {
+            color: #00ff00;
+        }
+
+        .steps {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 9, 20, 0.2);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .steps h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #e50914;
+            font-weight: 700;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .step-item:hover {
+            background: rgba(229, 9, 20, 0.1);
+            transform: scale(1.02);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 17px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .slots-remaining {
+            background: linear-gradient(135deg, #2d0a0a 0%, #1a0000 100%);
+            border: 2px solid #e50914;
+            border-radius: 16px;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.25s ease, borderPulse 2s infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% {
+                border-color: #e50914;
+                box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+            }
+            50% {
+                border-color: #ff0a16;
+                box-shadow: 0 0 30px rgba(229, 9, 20, 0.6);
+            }
+        }
+
+        .slots-remaining h4 {
+            font-size: 18px;
+            color: #ffcc00;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .slots-remaining .slots-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: #e50914;
+            margin-bottom: 8px;
+        }
+
+        .slots-remaining p {
+            font-size: 15px;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .faq-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 9, 20, 0.2);
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .faq-section h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #e50914;
+            font-weight: 700;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .faq-question {
+            padding: 22px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(229, 9, 20, 0.1);
+        }
+
+        .faq-arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #cccccc;
+            padding: 0 25px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 25px 22px 25px;
+        }
+
+        .cta-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.95) 70%, transparent 100%);
+            padding: 20px;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 22px 60px;
+            background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(229, 9, 20, 0.6);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(229, 9, 20, 0.8);
+            background: linear-gradient(135deg, #ff0a16 0%, #e50914 100%);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Notification Popup */
+        .notification {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d0a0a 100%);
+            border: 2px solid #e50914;
+            border-radius: 16px;
+            padding: 18px 25px;
+            box-shadow: 0 10px 40px rgba(229, 9, 20, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 90%;
+            width: 350px;
+            animation: slideInUp 0.5s ease, slideOutDown 0.5s ease 1.5s forwards;
+            z-index: 1000;
+        }
+
+        .notification-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .notification-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .notification-name {
+            font-weight: 700;
+            color: #e50914;
+            margin-bottom: 4px;
+            font-size: 15px;
+        }
+
+        .notification-text {
+            font-size: 13px;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateX(-50%) translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutDown {
+            from {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-50%) translateY(100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 15px 110px 15px;
+            }
+
+            .logo h1 {
+                font-size: 40px;
+            }
+
+            .hero {
+                padding: 35px 25px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .timer-stats {
+                gap: 30px;
+                padding: 20px 15px;
+            }
+
+            .stat-value {
+                font-size: 30px;
+            }
+
+            .stat-label {
+                font-size: 12px;
+            }
+
+            .steps {
+                padding: 30px 20px;
+            }
+
+            .steps h3 {
+                font-size: 24px;
+            }
+
+            .step-item {
+                padding: 20px;
+            }
+
+            .step-text {
+                font-size: 15px;
+            }
+
+            .slots-remaining {
+                padding: 25px 15px;
+            }
+
+            .slots-remaining .slots-number {
+                font-size: 44px;
+            }
+
+            .faq-section {
+                padding: 30px 20px;
+            }
+
+            .faq-section h3 {
+                font-size: 24px;
+            }
+
+            .faq-question {
+                padding: 18px 20px;
+                font-size: 15px;
+            }
+
+            .faq-answer {
+                padding: 0 20px;
+                font-size: 14px;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 20px 18px 20px;
+            }
+
+            .cta-button {
+                padding: 20px 40px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .notification {
+                bottom: 110px;
+                width: calc(100% - 30px);
+                padding: 16px 20px;
+            }
+
+            .notification-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .urgency-banner {
+                padding: 15px 20px;
+            }
+
+            .urgency-banner h3 {
+                font-size: 18px;
+            }
+
+            .urgency-banner p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 36px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .timer-stats {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .cta-button {
+                padding: 18px 30px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>NETFLIX</h1>
+        </div>
+
+        <div class="urgency-banner">
+            <h3>⚡ LIMITED TIME OPPORTUNITY ⚡</h3>
+            <p>Don't miss your chance to join today!</p>
+        </div>
+
+
+
+        <div class="timer-stats">
+            <div class="stat-box">
+                <div class="stat-label">Time Remaining</div>
+                <div class="stat-value timer" id="timer">23:47:15</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Active Users Online</div>
+                <div class="stat-value online" id="activeUsers">167</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">⚠️ Slots Available</div>
+                <div class="stat-value" id="slotsRemaining">47</div>
+            </div>
+        </div>
+
+        <div class="steps">
+            <h3>Quick Start Guide</h3>
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                    <strong>Answer a few questions</strong>
+                    <div style="font-size: 13px; color: #999; margin-top: 5px;">Quick setup to get started</div>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                    <strong>Be Over 18+</strong>
+                    <div style="font-size: 13px; color: #999; margin-top: 5px;">Age verification required</div>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                    <strong>Get Approved</strong>
+                    <div style="font-size: 13px; color: #999; margin-top: 5px;">Instant approval process</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h3>Common Questions</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How long do the deals take?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Most deals are processed instantly and can be completed within 5-10 minutes. You'll receive immediate confirmation once your deal is approved.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    What are deals?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Deals are exclusive opportunities to earn through various Netflix-related activities. Each deal is designed to be simple, straightforward, and rewarding.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How many deals do I need?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    You only need to complete one deal to get started. After that, you can choose to participate in as many deals as you'd like to maximize your earnings.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-container">
+        <a href="YOUR_OFFER_LINK_HERE" class="cta-button">Get Paid To Watch</a>
+    </div>
+
+    <script>
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Countdown Timer
+        function updateTimer() {
+            const timerEl = document.getElementById('timer');
+            let timeString = timerEl.textContent;
+            let [hours, minutes, seconds] = timeString.split(':').map(Number);
+            
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                    if (hours < 0) {
+                        hours = 23;
+                    }
+                }
+            }
+            
+            timerEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+        
+        setInterval(updateTimer, 1000);
+
+        // Active Users Counter (always under 200)
+        function updateActiveUsers() {
+            const usersEl = document.getElementById('activeUsers');
+            const currentUsers = parseInt(usersEl.textContent);
+            const change = Math.floor(Math.random() * 10) - 5;
+            const newUsers = Math.max(150, Math.min(199, currentUsers + change));
+            usersEl.textContent = newUsers;
+        }
+        
+        setInterval(updateActiveUsers, 3000);
+
+        // Slots Remaining Counter
+        function updateSlots() {
+            const slotsEl = document.getElementById('slotsRemaining');
+            const currentSlots = parseInt(slotsEl.textContent);
+            if (currentSlots > 15 && Math.random() < 0.3) {
+                slotsEl.textContent = currentSlots - 1;
+            }
+        }
+        
+        setInterval(updateSlots, 8000);
+
+        // Notification System
+        const names = [
+            'Sarah M.', 'Michael T.', 'Jessica R.', 'David L.', 'Emily C.',
+            'James P.', 'Amanda K.', 'Robert S.', 'Jennifer H.', 'Chris W.',
+            'Maria G.', 'Daniel F.', 'Ashley B.', 'Matthew D.', 'Lauren V.',
+            'Kevin N.', 'Rachel M.', 'Brandon J.', 'Nicole A.', 'Justin E.'
+        ];
+
+        function showNotification() {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div class="notification-icon">✓</div>
+                <div class="notification-content">
+                    <div class="notification-name">${name}</div>
+                    <div class="notification-text">Just got approved for a Netflix job</div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        }
+
+        // Show first notification after 3 seconds, then every 6-10 seconds
+        setTimeout(() => {
+            showNotification();
+            setInterval(() => {
+                showNotification();
+            }, Math.random() * 4000 + 6000);
+        }, 3000);
+    </script>
+</body>
+</html>
